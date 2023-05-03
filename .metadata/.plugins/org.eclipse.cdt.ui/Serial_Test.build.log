@@ -1,0 +1,8 @@
+
+**** Build of configuration Debug for project Serial_Test ****
+
+"C:\\ti\\ccs1100\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+gmake[1]: 'Serial_Test.out' is up to date.
+
+**** Build Finished ****

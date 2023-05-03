@@ -1,0 +1,41 @@
+
+**** Build of configuration Debug for project msp432_driverlib ****
+
+"C:\\ti\\ccs1100\\ccs\\utils\\bin\\gmake" CC=C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl AR=C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armar SDK_ROOT_INCLUDE=C:/ti/ccs1100/ccs/workspace/simplelink_msp432p4_sdk_3_40_01_02 CGTOOLS=C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS -j 4 -k -j 8 all -O 
+ 
+"  CC      ../sysctl.c"
+"  CC      ../flash.c"
+"  CC      ../adc14.c"
+"  CC      ../aes256.c"
+"  CC      ../cpu.c"
+"  CC      ../comp_e.c"
+"  CC      ../crc32.c"
+"  CC      ../cs.c"
+"  CC      ../dma.c"
+"  CC      ../fpu.c"
+"  CC      ../gpio.c"
+"  CC      ../i2c.c"
+"  CC      ../interrupt.c"
+"  CC      ../mpu.c"
+"  CC      ../pmap.c"
+"  CC      ../pcm.c"
+"  CC      ../pss.c"
+"  CC      ../ref_a.c"
+"  CC      ../reset.c"
+"  CC      ../rtc_c.c"
+"  CC      ../systick.c"
+"  CC      ../spi.c"
+"  CC      ../timer32.c"
+"  CC      ../timer_a.c"
+"  CC      ../wdt_a.c"
+"  CC      ../uart.c"
+"  CC      ../lcd_f.c"
+"  CC      ../sysctl_a.c"
+"  CC      ../flash_a.c"
+"  AR      msp432p4xx_driverlib.lib"
+Makefile:37: recipe for target 'msp432p4xx_driverlib.lib' failed
+系统找不到指定的路径。
+gmake: *** [msp432p4xx_driverlib.lib] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****

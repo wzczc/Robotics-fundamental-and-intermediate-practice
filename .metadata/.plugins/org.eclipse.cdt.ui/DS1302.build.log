@@ -1,0 +1,8 @@
+
+**** Build of configuration Release for project DS1302 ****
+
+"C:\\ti\\ccs1100\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+gmake[1]: 'DS1302.out' is up to date.
+
+**** Build Finished ****

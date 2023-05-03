@@ -1,0 +1,134 @@
+#include "msp.h"
+#include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+#include "stdio.h"
+#include "init.h"
+#include "usart0.h"
+#include "port.h"
+uint32_t ss=0;
+send_typedef pp;
+
+uint8_t yy=0;
+uint8_t turnoo=0,lineoo=0;
+void main(void)
+
+{
+	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
+	bsp_init();
+	pid_init_start();
+	timer_init();
+	MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN2);
+	MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN3);
+	 while(1)
+	{
+
+	   if(tf%4==1)
+	   {
+	        if(mv_data.data4==1)
+	        {
+
+	            Clock_Delay1ms(20);
+	            if(mv_data.data3==1)
+	        {
+	           MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN6);//验证是否看到A
+	            TimerA2_Stop();
+	            TT_stop();
+	            LB_data.data0=100;
+	            LB_data.data1=0;
+	            LB_data.data2=0;
+	            LB_data.data3=0;
+
+
+	        }//判断停止，蜂鸣器
+	        }
+
+	   }
+	   else if(tf%4==1)
+	   {
+	       if(mv_data.data4==1)
+	           {
+	               Clock_Delay1ms(150);
+	               if(mv_data.data4==1)
+	                       {
+	                           circle_num++;
+
+	                       }
+	           }
+	       if(circle_num==1&&mv_data.data4==1)
+	       {
+               Clock_Delay1ms(150);
+               if(mv_data.data3==1)
+           {
+              MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN6);//验证是否看到A
+               TimerA2_Stop();
+               TT_stop();
+               LB_data.data0=100;
+               LB_data.data1=0;
+               LB_data.data2=0;
+               LB_data.data3=0;
+	       }
+	       }
+	   }
+	   else if(tf%4==2)
+	   {
+	       if(mv_data.data4==1)
+	                     {
+	                         Clock_Delay1ms(150);
+	                         if(mv_data.data4==1)
+	                                 {
+	                                     circle_num++;
+
+	                                 }
+	                     }
+	           if(circle_num==2&&mv_data.data4==1)
+	           {
+	               Clock_Delay1ms(1500);
+	               if(mv_data.data3==1)
+	           {
+	              MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN6);//验证是否看到A
+	               TimerA2_Stop();
+	               TT_stop();
+	               LB_data.data0=100;
+	               LB_data.data1=0;
+	               LB_data.data2=0;
+	               LB_data.data3=0;
+	           }
+	           }
+	   }
+	   else
+	   {
+	       if(mv_data.data4==1)
+	       {
+               MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN6);//验证是否看到A
+                TimerA2_Stop();
+                TT_stop();
+                LB_data.data0=100;
+                LB_data.data1=0;
+                LB_data.data2=0;
+                LB_data.data3=0;
+                Clock_Delay1ms(5000);
+                circle_num++;
+                TimerA2_Init(*speed_get_sum,50000);
+                TT_forward();
+	       }
+              if(circle_num==1&&mv_data.data4==1)
+              {
+                  Clock_Delay1ms(20);
+                  if(mv_data.data3==1)
+              {
+                 MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN6);//验证是否看到A
+                  TimerA2_Stop();
+                  TT_stop();
+                  LB_data.data0=100;
+                  LB_data.data1=0;
+                  LB_data.data2=0;
+                  LB_data.data3=0;
+              }
+              }
+	   }
+
+
+	}
+}
+
+
+

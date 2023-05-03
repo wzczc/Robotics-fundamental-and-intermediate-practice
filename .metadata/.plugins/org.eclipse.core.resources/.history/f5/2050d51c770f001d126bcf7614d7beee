@@ -1,0 +1,77 @@
+#include "port.h"
+
+void Key_Init(void)
+{
+    /* Configuring P1.1 as an input and enabling interrupts */
+
+    /*配置1.1口为上拉输入*/
+    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P1, GPIO_PIN1);
+    /*清除IO口的中断标志位*/
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, GPIO_PIN1);
+    /*使能P1.1的外部中断（这里只是一个引脚）*/
+    MAP_GPIO_enableInterrupt(GPIO_PORT_P1, GPIO_PIN1);
+    /*使能P1端口的中断（这里是一个大端口，包括多个引脚）*/
+    MAP_Interrupt_enableInterrupt(INT_PORT1);
+
+    /* Configuring P1.4 as an input and enabling interrupts */
+    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P1, GPIO_PIN4);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, GPIO_PIN4);
+    MAP_GPIO_enableInterrupt(GPIO_PORT_P1, GPIO_PIN4);
+    MAP_Interrupt_enableInterrupt(INT_PORT1);
+}
+
+int tf=0;
+int df=0;
+void PORT1_IRQHandler(void)
+{
+    uint32_t status;
+
+    status = MAP_GPIO_getEnabledInterruptStatus(GPIO_PORT_P1);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, status);
+
+    if(status & GPIO_PIN1)
+    {
+        df+=1;
+
+        if(df%2==1){
+        TimerA2_Init(*speed_get_sum,50000);
+        TT_forward();
+        }
+        else
+        {
+            TimerA1_Stop();
+            TT_stop();
+        }
+    }
+
+    if(status & GPIO_PIN4)
+    {
+        tf+=1;
+        OLED_Clear();
+        if(tf%4==0)
+        {
+            OLED_ShowNum(0,0,300,3,12);
+            OLED_ShowString(0,2,"ti mu yi",12);
+            set_speed1=432;
+        }
+        if(tf%4==1)
+        {
+            OLED_ShowNum(0,0,500,3,12);
+            OLED_ShowString(0,2,"ti mu er",12);
+            set_speed1=432;
+        }
+        if(tf%4==2)
+        {
+            OLED_ShowNum(0,0,1000,4,12);
+            set_speed1=432;
+            OLED_ShowString(0,2,"ti mu san",12);
+        }
+        if(tf%4==3)
+        {
+            OLED_ShowNum(0,0,1000,4,12);
+            set_speed1=432;
+            OLED_ShowString(0,2,"ti mu si",12);
+        }
+
+    }
+}

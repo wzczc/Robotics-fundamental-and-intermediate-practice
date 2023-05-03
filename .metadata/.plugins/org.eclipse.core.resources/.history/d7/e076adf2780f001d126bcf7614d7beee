@@ -1,0 +1,53 @@
+#include"refer.h"
+refer_typedef refer;
+void  refer_init(void)
+{
+        P4->SEL0=0X00;
+        P4->SEL1=0X00;
+        P4->DS =0X00;
+        P4->DIR=0X00;
+        P4->REN=0X1F;
+        P4->OUT=0X00;
+}
+
+uint8_t data00;
+uint8_t data01;
+void refer_get(refer_typedef *refer)
+{
+    data00=P4->IN&0x1F;
+    if((data00&0x01)==1) refer->L_2=1;
+    else refer->L_2=0;
+    if((data00&0x02)==2) refer->L_1=1;
+    else refer->L_1=0;
+    if((data00&0x04)==4) refer->MID=1;
+    else refer->MID=0;
+    if((data00&0x08)==8) refer->R_1=1;
+    else refer->R_1=0;
+    if((data00&0x10)==16) refer->R_2=1;
+    else refer->R_2=0;
+}
+
+int error_get(refer_typedef *refer)
+{
+    int out=0;
+    out=refer->L_1*(-4)+refer->L_2*(-10)+refer->R_1*4+refer->R_2*10;
+    return out;
+}
+float  kp = 25,ki = 0.03,kd = 0.06;//30cmѲ�߲���
+//float  kp = 25,ki = 0.03,kd = 0.06;
+
+
+float error,last_error=0;    //�˴κ��ϴε����
+static float integral;    //�����ۼ���
+float output;      //PID���
+float PID_Output(int dist,int lim)
+{
+    error=dist;
+    integral += error;
+    output = kp * error + ki * integral + kd * (error - last_error);
+    last_error = error;
+    if(output>lim*0.8) output=lim*0.8;
+    else if(output<-lim*0.8) output=-lim*0.8;
+    return output;   //���PID����õ�����һ������Ĳ��ٵ���ֵ����ߵĵ���ͼ�����Ӧ��PID������ұ����ȥ�������Ǽӻ��Ǽ�����Ҫ������KP���Լ��ɣ�
+}
+

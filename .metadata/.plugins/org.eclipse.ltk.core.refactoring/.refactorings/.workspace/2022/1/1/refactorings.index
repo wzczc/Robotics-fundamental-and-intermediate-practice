@@ -1,0 +1,5 @@
+1641014964486	Delete resource 'freertos_builds_MSP_EXP432P401R_release_ccs'
+1641014968877	Delete resource 'timerled_MSP_EXP432P401R_freertos_ccs'
+1641014972474	Delete resource 'timerled_MSP_EXP432P401R_tirtos_ccs'
+1641014976159	Delete resource 'tirtos_builds_MSP_EXP432P401R_release_ccs'
+1641058763947	Delete resource 'gpio_toggle_output_MSP_EXP432P401R_nortos_ccs'

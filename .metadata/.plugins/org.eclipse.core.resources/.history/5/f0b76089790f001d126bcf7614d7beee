@@ -1,0 +1,131 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../msp432p401r.cmd 
+
+C_SRCS += \
+../Clock.c \
+../LED.c \
+../PWM.c \
+../TA3InputCapture.c \
+../TT_Motor.c \
+../Tachometer.c \
+../TimerA1.c \
+../TimerA2.c \
+../init.c \
+../main.c \
+../oled.c \
+../pid.c \
+../port.c \
+../refer.c \
+../startup_msp432p401r_ccs.c \
+../system_msp432p401r.c \
+../usart0.c \
+../usart1.c 
+
+C_DEPS += \
+./Clock.d \
+./LED.d \
+./PWM.d \
+./TA3InputCapture.d \
+./TT_Motor.d \
+./Tachometer.d \
+./TimerA1.d \
+./TimerA2.d \
+./init.d \
+./main.d \
+./oled.d \
+./pid.d \
+./port.d \
+./refer.d \
+./startup_msp432p401r_ccs.d \
+./system_msp432p401r.d \
+./usart0.d \
+./usart1.d 
+
+OBJS += \
+./Clock.obj \
+./LED.obj \
+./PWM.obj \
+./TA3InputCapture.obj \
+./TT_Motor.obj \
+./Tachometer.obj \
+./TimerA1.obj \
+./TimerA2.obj \
+./init.obj \
+./main.obj \
+./oled.obj \
+./pid.obj \
+./port.obj \
+./refer.obj \
+./startup_msp432p401r_ccs.obj \
+./system_msp432p401r.obj \
+./usart0.obj \
+./usart1.obj 
+
+OBJS__QUOTED += \
+"Clock.obj" \
+"LED.obj" \
+"PWM.obj" \
+"TA3InputCapture.obj" \
+"TT_Motor.obj" \
+"Tachometer.obj" \
+"TimerA1.obj" \
+"TimerA2.obj" \
+"init.obj" \
+"main.obj" \
+"oled.obj" \
+"pid.obj" \
+"port.obj" \
+"refer.obj" \
+"startup_msp432p401r_ccs.obj" \
+"system_msp432p401r.obj" \
+"usart0.obj" \
+"usart1.obj" 
+
+C_DEPS__QUOTED += \
+"Clock.d" \
+"LED.d" \
+"PWM.d" \
+"TA3InputCapture.d" \
+"TT_Motor.d" \
+"Tachometer.d" \
+"TimerA1.d" \
+"TimerA2.d" \
+"init.d" \
+"main.d" \
+"oled.d" \
+"pid.d" \
+"port.d" \
+"refer.d" \
+"startup_msp432p401r_ccs.d" \
+"system_msp432p401r.d" \
+"usart0.d" \
+"usart1.d" 
+
+C_SRCS__QUOTED += \
+"../Clock.c" \
+"../LED.c" \
+"../PWM.c" \
+"../TA3InputCapture.c" \
+"../TT_Motor.c" \
+"../Tachometer.c" \
+"../TimerA1.c" \
+"../TimerA2.c" \
+"../init.c" \
+"../main.c" \
+"../oled.c" \
+"../pid.c" \
+"../port.c" \
+"../refer.c" \
+"../startup_msp432p401r_ccs.c" \
+"../system_msp432p401r.c" \
+"../usart0.c" \
+"../usart1.c" 
+
+
