@@ -1,8 +1,8 @@
 # Robotics-fundamental-and-intermediate-practice
-code for "机器人基础和中级实践"
-基于MSP432和CCS IDE
+code for "机器人基础和中级实践"，基于MSP432和CCS IDE
 ## 机器人基础实践
 使用红外传感器的巡线小车
+* 硬件：TI小车套件
 * 代码：test文件夹里的 **findline.c**
 * 效果：
 
