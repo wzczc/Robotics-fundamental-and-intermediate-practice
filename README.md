@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/94534877/235879480-4bb66ae7-b71a-4a77-
 https://user-images.githubusercontent.com/94534877/235879492-3d3ced76-a89e-4f37-8aa6-1b0c503a6cc5.mp4
 
 ## 机器人中级实践
-电子时钟系统
+按键控制的电子时钟系统
 * 硬件：OLED、DS1302、MSP432等
 * 代码：**Serial_Test** 里的 **main.c**
 * 功能：  
